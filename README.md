@@ -7,7 +7,7 @@ Understanding and documenting the provided Verilog code, creating the necessary 
 
 ## Contents:
 ### Step 1: Understanding the Verilog code
-The Verilog code can be accessed [here](TODO:SURESH) It is code for a FPGA (Field Programmable Gate Array) board, and implements a hardware module that controls RGB LEDs using an internal oscillator and counter.
+The Verilog code can be accessed from the github repo at the [LINK](https://github.com/thesourcerer8/VSDSquadron_FM/tree/main). This repository contains projects for VSDSquadron_FM, utilizing open-source FPGA tools for development. It demonstrates implementing the hardware module that controls RGB LEDs using an internal oscillator and counter.
 <details>
 <summary>Module Analysis </summary>
 
