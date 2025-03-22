@@ -1,2 +1,2 @@
-# VSDSquadron_FM_Research_Internship_by_Dirgha_Panara
+# VSDSquadron_FM_Research_Internship_by_Dirgha
 VSDSquadron FPGA Mini Research Internship 2025
