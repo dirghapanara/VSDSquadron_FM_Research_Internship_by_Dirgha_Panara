@@ -1,5 +1,28 @@
 # VSDSquadron_FM_Research_Internship_by_Dirgha
 The VSDSquadron FPGA Mini (FM) is a compact and low-cost development board designed for FPGA prototyping and embedded system projects. This board provides a seamless hardware development experience with an integrated programmer, versatile GPIO access, and onboard memory, making it ideal for students, hobbyists, and developers exploring FPGA-based designs.
+![FPGA Mini Board](https://github.com/user-attachments/assets/e6b3f3ea-f00d-42de-997c-d0a3c5b4579f)
+
+## Features of the FM board:
+- **FPGA:**
+   * Powered by the Lattice UltraPlus ICE40UP5K FPGA
+   * Offers 5.3K LUTs, 1Mb SPRAM, 120Kb DPRAM, and 8 multipliers for versatile design
+     capabilities
+- **Connectivity:**
+   + Equipped with an FTDI FT232H USB to SPI device for seamless communication
+   + All FTDI pins are accessible through test points for easy debugging and customization
+- **General Purpose I/O (GPIO):**
+   * All 32 FPGA GPIOs brought out for easy prototyping and interfacing
+- **Memory:**
+   + Integrated 4MB SPI flash for data storage and configuration
+- **LED Indicators:**
+   + RGB LED included for status indication or user-defined functionality
+- **Form Factor:**
+   + Compact design with all pins accessible, perfect for fast prototyping and embedded applications
+
+## Features of the FM board:
+The block diagram shown in Figure 1 shows the key components of the VSDSquadron FPGA Mini(FM) board.
+
+![block_diagram](https://github.com/user-attachments/assets/0f452595-18bc-4ce3-b19b-20be45e8d2ba)
 
 # Task 1: Understanding and Implementing the Verilog Code on FM
 ## Objective: 
@@ -96,13 +119,13 @@ This command maps *testwire* to pin 17, for testing or debugging purposes.
 <details>
 <summary>Steps of Integrating the Board </summary>
     
-### Links
-1. Datasheet: [here](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf)
-2. Makefile: [here](https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/blink_led/Makefile)
-3. ASC code: [here]( """ )
-4. JSON code: [here]( """ )
-5. Module Timings: [here]( """)
 ### Steps to Follow (based on instructions)
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+> [! TIP]
+> If program FPGA fails, check the connectivity between board and your computer
+> Check if the USB cable is not faulty
+
 1. Reviewing the [VSDSquadron FPGA Mini board datasheet](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf) to understand its features and pinout.
 2. Using the [datasheet](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf) to correlate the physical board connections with the PCF file and Verilog code.
 3. Connecting the board to the computer as described in the datasheet (e.g., using USB-C and ensuring FTDI connection).
@@ -112,6 +135,13 @@ This command maps *testwire* to pin 17, for testing or debugging purposes.
    - Run 'make build' to compile the design
    - Run 'sudo make flash' to program the FPGA board
 5. Observe the behavior of the RGB LED (blinks) on the board to confirm successful programming.
+
+Some TIPS:
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+> [! TIP]
+> If program FPGA fails, check the connectivity between board and your computer
+> Check if the USB cable is not faulty 
 
 > after make clean: board should look as follows:
 > 
@@ -153,5 +183,8 @@ https://github.com/user-attachments/assets/40b9e7ab-f480-4d6a-ad70-fb5d0563cedc
 - Found it kind of hard to understand the verilog originally - google searches were able to clear things up
 </details>
 
-
-
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+> [! TIP]
+> If program FPGA fails, check the connectivity between board and your computer
+> Check if the USB cable is not faulty 
