@@ -20,7 +20,7 @@ The VSDSquadron FPGA Mini (FM) is a compact and low-cost development board desig
    + Compact design with all pins accessible, perfect for fast prototyping and embedded applications
 
 ## Features of the FM board:
-The block diagram shown in Figure 1 shows the key components of the VSDSquadron FPGA Mini(FM) board.
+The block diagram shown in Figure depicts the key components of the VSDSquadron FPGA Mini(FM) board.
 
 ![block_diagram](https://github.com/user-attachments/assets/0f452595-18bc-4ce3-b19b-20be45e8d2ba)
 
@@ -31,8 +31,6 @@ Understanding and documenting the provided Verilog code, creating the necessary 
 ## Contents:
 ### Step 1: Understanding the Verilog code
 The Verilog code can be accessed from the github repo at the [LINK](https://github.com/thesourcerer8/VSDSquadron_FM/tree/main). This repository contains projects for VSDSquadron_FM, utilizing open-source FPGA tools for development. It demonstrates implementing the hardware module that controls RGB LEDs using an internal oscillator and counter.
-<details>
-<summary>Module Analysis </summary>
 
 ### Port Analysis:
 ![image](https://github.com/user-attachments/assets/91b214a4-9f0b-40c9-9ffe-1f2bdb33d3e2)
@@ -42,7 +40,7 @@ The first section of the code specifies the **ports** of the board, which are in
 2. *hw_clk* : A **single-bit input wire** that connects to the **hardware oscillator**, providing the system **clock signal** that drives the module's timing.
 3. *testwire* : A **single-bit output** that provides a **test/debug signal**, specifically connected to **bit 5** of the frequency counter.
 
-   ### Internal Component Analysis:
+### Internal Component Analysis:
 The module specifies three main internal components:
 
 **1. Internal Oscilliator (*SB_HFOSC*)**
@@ -90,15 +88,11 @@ The RGB LED driver (SB_RGBA_DRV) manages the LED outputs with the following char
 - Fixed configuration:
     1. Blue LED at maximum brightness (*RGB2PWM = 1'b1*)
     2. Red and Green LEDs at minimum brightness (*RGB0PWM = RGB1PWM = 1'b0*)
-</details>
 
 ### Step 2: Creating the PCF file
 The PCF [Physical Constraint File] file can be accessed [here](https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_red/VSDSquadronFM.pcf). It is used in FPGA development to map logical signals from HDL code to physical pins on the FPGA chip. Each *set_io* command establishes this connection between the named logical ports to physical pins on the board.
 
-<details>
-<summary>Analysis of Connections Established by PCF file</summary>
-
-Map of logical signal with physical pins:
+### Map of logical signal with physical pins:
 
 ### 1. *set_io led_red 39*
 This command maps the logical signal *led_red* to the physical pin 39, allowing the HDL code to control a LED (color red is implied) connected to pin 39.
@@ -114,56 +108,34 @@ This command assigns the hardware clock signal *hw_clk* to the physical pin 20, 
 
 ### 5. *set_io testwire 17*
 This command maps *testwire* to pin 17, for testing or debugging purposes.
-</details>
- Step 3: Integrating with the VSDSquadron FPGA Mini Board
-<details>
-<summary>Steps of Integrating the Board </summary>
+### Step 3: Integrating with the VSDSquadron FPGA Mini Board
     
 ### Steps to Follow (based on instructions)
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-> [! TIP]
-> If program FPGA fails, check the connectivity between board and your computer
-> Check if the USB cable is not faulty
-
 1. Reviewing the [VSDSquadron FPGA Mini board datasheet](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf) to understand its features and pinout.
 2. Using the [datasheet](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf) to correlate the physical board connections with the PCF file and Verilog code.
 3. Connecting the board to the computer as described in the datasheet (e.g., using USB-C and ensuring FTDI connection).
 4. Following the [Makefile](https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/blink_led/Makefile)
  for building and flashing the Verilog code:
    - Run 'make clean' to clear any previous builds
+     Observe that only RED led is ON after clean is executed
    - Run 'make build' to compile the design
    - Run 'sudo make flash' to program the FPGA board
 5. Observe the behavior of the RGB LED (blinks) on the board to confirm successful programming.
 
-Some TIPS:
 > [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-> [! TIP]
-> If program FPGA fails, check the connectivity between board and your computer
-> Check if the USB cable is not faulty 
+> If FPGA program flash fails, check the connectivity between board and your computer<br/>
+> Check if the USB cable is not faulty
 
-> after make clean: board should look as follows:
-> 
-> ![image](https://github.com/user-attachments/assets/3f63fccf-8a91-44f1-a29b-aae4f53eb868)
-
-### Final Behaviour
+### Board after successful program flash
 
 https://github.com/user-attachments/assets/51266b8f-1425-4bfa-a260-f847d74f84de
-</details>
 
-### Step 4: Final Documentation
-<details>
-<summary>Final Documentation of Task 1</summary>
+### Step 4: Final Documentation:
     
 ### Summary of the Verilog code functionality
-This [Verilog module](TODO:SURESH) controls an RGB LED with an internal high-frequency oscillator (SB_HFOSC) and a 28-bit frequency counter. The counter's bit 5 is routed to a testwire for monitoring. The RGB LED driver (SB_RGBA_DRV) provides current-controlled PWM outputs with a fixed configuration: blue at maximum brightness, red and green at minimum. It ensures stable LED operation with minimal external dependencies, making it ideal for embedded systems.
+This Verilog module controls an RGB LED with an internal high-frequency oscillator (SB_HFOSC) and a 28-bit frequency counter. The counter's bit 5 is routed to a testwire for monitoring. The RGB LED driver (SB_RGBA_DRV) provides current-controlled PWM outputs with a fixed configuration: blue at maximum brightness, red and green at minimum. It ensures stable LED operation with minimal external dependencies, making it ideal for embedded systems.
 
 ### Pin mapping details from the PCF file
-The [PCF file](TODO:SURESH) can be represented as follows:
-
-![image](https://github.com/user-attachments/assets/2dbad546-0b2e-4343-a7e3-c751d4357831)
-
 The file maps a red LED to pin 39, a blue LED to pin 40, a green LED to pin 41, a clock signal to pin 20, and lastly a testwire to pin 17. This also corresponds with the [datasheet](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf).
 
 ### Understanding and Implementing the Verilog Code 
@@ -178,13 +150,8 @@ The file maps a red LED to pin 39, a blue LED to pin 40, a green LED to pin 41, 
 
 https://github.com/user-attachments/assets/40b9e7ab-f480-4d6a-ad70-fb5d0563cedc
 
-### Challenges Faced and Solutions Implemented
-- Faced difficulty in connecting board: was able to refer group where someone had already found a solution - a USBC cable that could transfer data was needed
-- Found it kind of hard to understand the verilog originally - google searches were able to clear things up
-</details>
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-> [! TIP]
-> If program FPGA fails, check the connectivity between board and your computer
-> Check if the USB cable is not faulty 
+### Tips and Tricks:
+- Make sure Virtual Box is installed properly, check datasheet for the detailed steps.
+- Check the USB cable is working properly
+- Use google for detail information on Verilog.
+- Help is just one message away!!!
