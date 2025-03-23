@@ -128,7 +128,7 @@ This command maps *testwire* to pin 17, for testing or debugging purposes.
 
 ### Board after successful program flash
 
-https://github.com/user-attachments/assets/51266b8f-1425-4bfa-a260-f847d74f84de
+https://github.com/user-attachments/assets/795ab613-1f0a-4cd5-b3ee-9c760dcb57b0
 
 ### Step 4: Final Documentation:
     
