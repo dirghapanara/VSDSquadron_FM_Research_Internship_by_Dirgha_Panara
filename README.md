@@ -146,8 +146,7 @@ The file maps a red LED to pin 39, a blue LED to pin 40, a green LED to pin 41, 
      - Run 'sudo make flash' to program the FPGA board
 5. Verify that LED remains BLINKS (controlled by SB_RGBA_DRV) - this is the expected result:
 
-https://github.com/user-attachments/assets/9d173465-1031-4fe9-bf60-272951dd391f
-
+https://github.com/user-attachments/assets/40b9e7ab-f480-4d6a-ad70-fb5d0563cedc
 
 ### Challenges Faced and Solutions Implemented
 - Faced difficulty in connecting board: was able to refer group where someone had already found a solution - a USBC cable that could transfer data was needed
